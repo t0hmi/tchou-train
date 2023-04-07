@@ -1,4 +1,2 @@
 node_modules
-vs-code
-
-.DS_Store
+.vscode
