@@ -1,3 +1,13 @@
+@import "./components/grid.scss";
+
+@import "variables.scss";
+
+
 h1 {
-  color: red;
+  color: $main-color;
+}
+
+img {
+  height: 100%;
+  width: 100%;
 }
