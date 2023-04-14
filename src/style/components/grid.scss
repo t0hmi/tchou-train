@@ -21,14 +21,16 @@
 
     &-train {
       background-size: cover;
-      background-image: url(src/assets/img/train-track.png);
 
       &__horizontal {
         background-size: cover;
+        background-image: url(src/assets/img/train-track-h.png);
         background-color: yellow;
       }
+
       &__vertical {
         background-size: cover;
+        background-image: url(src/assets/img/train-track-v.png);
         background-color: blue;
       }
     }

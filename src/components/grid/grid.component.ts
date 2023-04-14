@@ -14,18 +14,14 @@ class GridComponent extends HTMLElement {
 
   connectedCallback() {
     const shadow = this.attachShadow({ mode: 'closed' });
-    console.log("this", this);
 
 
-    this.attr.forEach((el, key) => {
-      this.template = this.template.split(`{{${key}}}`).join(el.toString());
+    //replace all attributes in the template with the actual values
+    this.attr.forEach((el) => {
+      this.template = this.template.split(`{{${el}}}`).join(this.getAttribute(el));
     });
 
-    console.log("template", this.template);
-
     shadow.innerHTML = this.template;
-    console.log("shadow", shadow);
-
   }
 
   // attribute change
@@ -36,7 +32,7 @@ class GridComponent extends HTMLElement {
 
   // component attributes
   static get observedAttributes() {
-    return ['railType']
+    return []
   }
 }
 
