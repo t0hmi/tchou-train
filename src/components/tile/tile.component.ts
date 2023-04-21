@@ -1,34 +1,40 @@
-import html from "./tile.component.html?raw";
+import rawTileHtml from "./tile.component.html?raw";
 
-class TileComponent extends HTMLElement {
-  static selector = 'my-tile';
-  private template: string;
-  private attr: string[];
+export class TileComponent extends HTMLElement {
+  static selector = 'train-tile';
+
+  $tile : TileComponent;
 
   constructor() {
     super();
-
-    this.template = html;
-    this.attr = ['railType'];
+    this.attachShadow({ mode: 'open' });
+    const child = document.createElement('div');
+    child.setAttribute('id', 'train-tile');
+    child.setAttribute('class', 'c-tile');
+    let tileHtml = rawTileHtml;
+    TileComponent.observedAttributes.forEach((el) => {
+      tileHtml = tileHtml.split(`{{${el}}}`).join(this.getAttribute(el));
+    });
+    child.innerHTML = tileHtml;
+    
+    this.shadowRoot.appendChild(child);
+    this.$tile = this.shadowRoot.querySelector('#train-tile');
   }
 
+
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: 'closed' });
-    console.log("this", this)
+    
+  }
 
-
-    //replace all attributes in the template with the actual values
-    this.attr.forEach((el) => {
-      this.template = this.template.split(`{{${el}}}`).join(this.getAttribute(el));
-    });
-    console.log("this.template", this.template);
-
-    shadow.innerHTML = this.template;
+  attributeChangedCallback(_, oldValue: string, newValue: string) {
+    if (oldValue !== newValue) {
+      this.$tile.getElementsByTagName('img')[0].src = this.$tile.getElementsByTagName('img')[0].src.split(oldValue).join(newValue);
+    }
   }
 
   // component attributes
   static get observedAttributes() {
-    return ['railType']
+    return ['tiletype']
   }
 
 }
