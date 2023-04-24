@@ -25,7 +25,6 @@ class GridComponent extends HTMLElement {
     if(index >= this.tiles.length) {
       index = 0;
     }
-    console.log(this.tiles)
     return this.tiles[index] as string;
   }
 
