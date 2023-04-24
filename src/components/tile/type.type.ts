@@ -24,6 +24,6 @@ export enum Building {
 export const Tile = {
     // ...Building, [TODO] ADD IMG IN ASSETS
     // ...Nature, [TODO] ADD IMG IN ASSETS
-    ...Rail,
-    ...Empty
+    ...Empty,
+    ...Rail
 };

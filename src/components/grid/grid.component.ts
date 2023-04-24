@@ -13,15 +13,20 @@ class GridComponent extends HTMLElement {
     for (let i = 0; i < 36; i++) {
       // random value from Tile enum, for testing purpose
       const child = document.createElement('train-tile');
-      child.setAttribute('tileType', this.randomTile());
+      child.setAttribute('tileType', Tile.EMPTY);
       child.setAttribute('tileId', i.toString());
       child.addEventListener('click', this.onClick);
       shadow.appendChild(child);
     }
   }
 
-  randomTile() {
-    return this.tiles[Math.floor(Math.random() * this.tiles.length)];
+  randomTile(tiletype: string): string {
+    let index = this.tiles.indexOf(tiletype) + 1;
+    if(index >= this.tiles.length) {
+      index = 0;
+    }
+    console.log(this.tiles)
+    return this.tiles[index] as string;
   }
 
 
@@ -33,7 +38,8 @@ class GridComponent extends HTMLElement {
 
   onClick = (ev: MouseEvent) => {
     const tile = ev.target as TileComponent; 
-    tile.setAttribute('tileType', this.randomTile());
+    const tileType = tile.getAttribute('tileType') as string;
+    tile.setAttribute('tileType', this.randomTile(tileType));
     console.log("this", ev.target);  
   }
 
