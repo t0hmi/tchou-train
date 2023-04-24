@@ -1,5 +1,9 @@
 @import "../variables.scss";
 
+.my-tile.c-grid__item {
+  background: beige;
+}
+
 .c-grid {
   display: grid;
   margin: 25px auto;
