@@ -4,7 +4,11 @@ export enum Empty {
 
 export enum Rail {
     HORIZONTAL = 'HORIZONTAL',
-    VERTICAL = 'VERTICAL'
+    VERTICAL = 'VERTICAL',
+    TURN_LEFT = 'TURN-LEFT',
+    TURN_RIGHT = 'TURN-RIGHT',
+    TURN_REVERSE_LEFT = 'TURN-REVERSE-LEFT',
+    TURN_REVERSE_RIGHT = 'TURN-REVERSE-RIGHT',
 }
 
 export enum Nature {
@@ -20,6 +24,6 @@ export enum Building {
 export const Tile = {
     // ...Building, [TODO] ADD IMG IN ASSETS
     // ...Nature, [TODO] ADD IMG IN ASSETS
-    ...Rail,
-    ...Empty
+    ...Empty,
+    ...Rail
 };
