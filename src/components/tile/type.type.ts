@@ -4,7 +4,11 @@ export enum Empty {
 
 export enum Rail {
     HORIZONTAL = 'HORIZONTAL',
-    VERTICAL = 'VERTICAL'
+    VERTICAL = 'VERTICAL',
+    TURN_LEFT = 'TURN-LEFT-2',
+    TURN_RIGHT = 'TURN-RIGHT-2',
+    TURN_REVERSE_LEFT = 'TURN-REVERSE-LEFT-2',
+    TURN_REVERSE_RIGHT = 'TURN-REVERSE-RIGHT-2',
 }
 
 export enum Nature {
