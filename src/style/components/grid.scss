@@ -13,4 +13,14 @@
   width: 35%;
   position: relative;
   aspect-ratio: 1/1;
+  animation: move-grid 16.6s linear;
+}
+
+@keyframes move-grid {
+  0% {
+    transform: translateX(2037px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

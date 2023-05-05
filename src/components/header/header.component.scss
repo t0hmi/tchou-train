@@ -43,7 +43,6 @@ ul {
   background: -ms-linear-gradient(#013971, #000c18 60%);
   background: linear-gradient(#013971, #000c18 60%);
   height: 250px;
-  overflow: hidden;
   position: relative;
   
   &::before, &::after {
@@ -505,6 +504,21 @@ ul {
   }
 }
 
+@keyframes remove-joint {
+  0% {
+    transform: rotate(45deg);
+    width: 8rem;
+  }
+  90% {
+    transform: rotate(45deg);
+    width: 8rem;
+  }
+  100% {
+    transform: rotate(0deg);
+    width: 2rem;
+  }
+}
+
 @keyframes body-upDown {
   0%, 100% {
     transform: translateY(0);
@@ -547,7 +561,6 @@ ul {
 }
 
 .wheel-joint {
-  animation: wheel-joint 2s linear infinite;
   background: white;
   border-radius: 0.6rem;
   height: 0.4rem;
@@ -577,13 +590,33 @@ ul {
   &::after {
     right: -0.4rem;
   }
+
+  &-1{
+    animation: wheel-joint 2s linear infinite;
+  }
   
   &-2 {
+    animation: wheel-joint 2s linear infinite;
     left: 1.8rem;
     right: auto;
     transform: rotate(-15deg);
     transform-origin: 0 50%;
     width: 4.4rem;
+    
+    &::before {
+      height: 1.1rem;
+      width: 1.1rem;
+    }
+  }
+  
+  &-3 {
+    animation: remove-joint 17s linear;
+    left: 49.5rem;
+    right: auto;
+    transform-origin: 0 50%;
+    background: #6e6e6e;
+    z-index: 1;
+    width: 2rem;
     
     &::before {
       height: 1.1rem;
