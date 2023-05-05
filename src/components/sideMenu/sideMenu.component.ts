@@ -1,3 +1,4 @@
+import { log } from 'console';
 import html from './sideMenu.component.html?raw';
 
 class SideMenuComponent extends HTMLElement {
@@ -34,13 +35,27 @@ class SideMenuComponent extends HTMLElement {
 
     // listener for the buttons to select a menu item
     const menuItem = shadow.querySelectorAll(".menu-item");
+    const clearButton = shadow.getElementById("clearButton");
+    console.log(clearButton);
+    
     menuItem.forEach(el => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
         document.body.style.cursor = `url(assets/img/64/${el.id}.png), auto`;
         this.closeAll(checkBox);
+        clearButton.classList.remove("hidden");
       })
     });
+
+    // listener for the clear button to clear the selection
+
+    clearButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.body.style.cursor = `pointer, auto`;
+      document.body.style.cursor = "";
+      clearButton.classList.add("hidden");
+      this.closeAll(checkBox);
+    })
   }
 
   // component attributes
@@ -56,9 +71,7 @@ class SideMenuComponent extends HTMLElement {
   }
   private closeAll(listToClose) {
     this.closeAllButMe(listToClose, null);
-    // listToClose.forEach(el => {
-    //   el.checked = false;
-    // })
+
   }
 }
 customElements.define(SideMenuComponent.selector, SideMenuComponent);
