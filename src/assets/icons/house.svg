@@ -1,12 +1,13 @@
-<svg class="house" width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+<svg class="house" width="250" height="250" viewBox="0 0 250 250" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0_60_159)">
-    <rect width="250" height="250" fill="none" />
-    <path class="house"
+    <rect width="250" height="250" />
+    <path
       d="M32.8744 250V120.088L122.72 34.416L212.567 119.385V250H168.346V195.929H122.721H77.0955V250H32.8744Z"
-      fill="#D9D9D9" />
-    <path class="house"
+      fill="black" />
+    <path
       d="M246.961 106.043L132.547 3.51796C132.547 3.51796 127.772 -0.179219 122.72 0.00679052C117.874 0.185261 113.595 3.51796 113.595 3.51796L1.9897 107.448C1.9897 107.448 -2.92366 114.47 2.69164 120.088C8.30694 125.705 16.0282 119.385 16.0282 119.385L122.72 18.967L231.519 119.385C231.519 119.385 239.24 127.224 246.961 120.088C253.799 113.768 246.961 106.043 246.961 106.043Z"
-      fill="#D9D9D9" />
+      fill="black" />
     <path
       d="M32.8744 250V120.088L122.72 34.416L212.567 119.385V250H168.346V195.929H122.721H77.0955V250H32.8744Z"
       stroke="black" />
@@ -16,7 +17,7 @@
   </g>
   <defs>
     <clipPath id="clip0_60_159">
-      <rect width="250" height="250" fill="white"/>
+      <rect width="250" height="250" fill="none" />
     </clipPath>
   </defs>
 </svg>
