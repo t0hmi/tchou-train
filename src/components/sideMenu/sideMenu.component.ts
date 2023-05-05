@@ -23,6 +23,17 @@ class SideMenuComponent extends HTMLElement {
     linkElem.setAttribute('href', 'style/style.scss');
     shadow.appendChild(linkElem)
     shadow.innerHTML += this.template;
+
+    // listener for the menu button to close other open menus
+    const checkBox = shadow.querySelectorAll(".menu-open");
+    checkBox.forEach(el => {
+      el.addEventListener("click", (e) => {
+        checkBox.forEach(el => {
+          if (el != e.target)
+            el.checked = false;
+        })
+      })
+    })
   }
 
   // component attributes
