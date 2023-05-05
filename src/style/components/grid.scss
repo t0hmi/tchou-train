@@ -4,13 +4,13 @@
   background: beige;
 }
 
-.c-grid {
+.train-grid {
   display: grid;
   margin: 25px auto;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 0;
-  width: 40%;
+  width: 35%;
   position: relative;
   aspect-ratio: 1/1;
 }
