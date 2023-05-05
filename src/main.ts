@@ -1,7 +1,6 @@
 import './components/tile/tile.component';
 import './components/grid/grid.component';
 import './components/sideMenu/sideMenu.component';
-import "./components/circleMenu/circleMenu.component";
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <side-menu class="c-side-menu"></side-menu>
 <div class="main">
