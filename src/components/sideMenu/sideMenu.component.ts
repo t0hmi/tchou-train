@@ -28,12 +28,19 @@ class SideMenuComponent extends HTMLElement {
     const checkBox = shadow.querySelectorAll(".menu-open");
     checkBox.forEach(el => {
       el.addEventListener("click", (e) => {
-        checkBox.forEach(el => {
-          if (el != e.target)
-            el.checked = false;
-        })
+        this.closeAllButMe(checkBox, e.target)
       })
     })
+
+    // listener for the buttons to select a menu item
+    const menuItem = shadow.querySelectorAll(".menu-item");
+    menuItem.forEach(el => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.body.style.cursor = `url(assets/img/64/${el.id}.png), auto`;
+        this.closeAll(checkBox);
+      })
+    });
   }
 
   // component attributes
@@ -41,5 +48,17 @@ class SideMenuComponent extends HTMLElement {
     return []
   }
 
+  private closeAllButMe(listToClose, me: EventTarget) {
+    listToClose.forEach(el => {
+      if (el != me)
+        el.checked = false;
+    })
+  }
+  private closeAll(listToClose) {
+    this.closeAllButMe(listToClose, null);
+    // listToClose.forEach(el => {
+    //   el.checked = false;
+    // })
+  }
 }
 customElements.define(SideMenuComponent.selector, SideMenuComponent);
