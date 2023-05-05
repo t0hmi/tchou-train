@@ -3,7 +3,7 @@ import { TileComponent } from "../tile/tile.component";
 
 class GridComponent extends HTMLElement {
   static selector = 'train-grid';
-  private tiles = Object.values(Tile);
+  private tiles: string[] = Object.values(Tile);
 
   constructor() {
     super();
@@ -25,7 +25,7 @@ class GridComponent extends HTMLElement {
     if(index >= this.tiles.length) {
       index = 0;
     }
-    return this.tiles[index] as string;
+    return this.tiles[index];
   }
 
 
