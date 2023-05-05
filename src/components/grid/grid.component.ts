@@ -3,7 +3,7 @@ import { TileComponent } from "../tile/tile.component";
 
 class GridComponent extends HTMLElement {
   static selector = 'train-grid';
-  private tiles = Object.values(Tile);
+  private tiles: string[] = Object.values(Tile);
 
   constructor() {
     super();
@@ -20,12 +20,12 @@ class GridComponent extends HTMLElement {
     }
   }
 
-  randomTile(tiletype: string): string {
+  nextTile(tiletype: string): string {
     let index = this.tiles.indexOf(tiletype) + 1;
     if(index >= this.tiles.length) {
       index = 0;
     }
-    return this.tiles[index] as string;
+    return this.tiles[index];
   }
 
 
@@ -38,7 +38,7 @@ class GridComponent extends HTMLElement {
   onClick = (ev: MouseEvent) => {
     const tile = ev.target as TileComponent; 
     const tileType = tile.getAttribute('tileType') as string;
-    tile.setAttribute('tileType', this.randomTile(tileType));
+    tile.setAttribute('tileType', this.nextTile(tileType));
     console.log("this", ev.target);  
   }
 
