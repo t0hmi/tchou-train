@@ -20,7 +20,7 @@ class GridComponent extends HTMLElement {
     }
   }
 
-  randomTile(tiletype: string): string {
+  nextTile(tiletype: string): string {
     let index = this.tiles.indexOf(tiletype) + 1;
     if(index >= this.tiles.length) {
       index = 0;
@@ -38,7 +38,7 @@ class GridComponent extends HTMLElement {
   onClick = (ev: MouseEvent) => {
     const tile = ev.target as TileComponent; 
     const tileType = tile.getAttribute('tileType') as string;
-    tile.setAttribute('tileType', this.randomTile(tileType));
+    tile.setAttribute('tileType', this.nextTile(tileType));
     console.log("this", ev.target);  
   }
 
