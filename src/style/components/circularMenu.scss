@@ -1,0 +1,139 @@
+$color_1: black;
+$background-color_1: lightgrey;
+$background-color_2: aqua;
+$background-color_3: red;
+$background-color_4: yellow;
+$border-top-color_1: yellow;
+$border-top-color_2: green;
+$border-top-color_3: blue;
+$border-top-color_4: red;
+
+.menu {
+  margin: auto;
+  cursor: pointer;
+}
+
+.menu-wrap {
+  border: 2px solid lightgrey;
+  width: 250px;
+  aspect-ratio: 1/1;
+  margin: auto;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  color: $color_1;
+
+  .entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+
+    &:hover {
+      background-color: $background-color_1;
+    }
+
+    &:hover+.toShow {
+      display: block !important;
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.show {
+  display: flex !important;
+}
+
+.submenu-wrap {
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid lightgrey;
+  width: 400px;
+  aspect-ratio: 1/1;
+  display: flex;
+  overflow: hidden;
+}
+
+.toShow {
+  position: absolute;
+  background-color: $background-color_2;
+  height: 300px;
+  width: 600px;
+  display: none;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 100;
+}
+
+.rail-droit {
+  background-color: $background-color_3;
+  transform-origin: bottom right;
+  transform: rotate(45deg);
+}
+
+.left {
+  transform-origin: top right;
+  transform: rotate(45deg);
+  background-color: $background-color_4;
+}
+
+.bottom {
+  transform-origin: top right;
+  transform: translateY(-100%) rotate(-45deg);
+  background: green;
+}
+
+.right {
+  transform-origin: top left;
+  transform: translateY(-200%) translateX(100%) rotate(-45deg);
+  background: blue;
+}
+
+.submenu {
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+
+  .entry {
+    position: absolute;
+    margin: auto;
+    width: 0%;
+    border-left: 10vh solid transparent;
+    border-right: 10vh solid transparent;
+    border-top: 22vh solid red;
+    top: 0;
+    transform-origin: bottom;
+
+    &:hover {
+      border-top-color: aqua!important;
+    }
+
+    &:nth-child(1) {
+      border-top-color: $border-top-color_1;
+      rotate: 24deg;
+    }
+
+    &:nth-child(2) {
+      border-top-color: $border-top-color_2;
+      rotate: 70deg;
+    }
+
+    &:nth-child(3) {
+      border-top-color: $border-top-color_3;
+      rotate: -24deg;
+    }
+
+    &:nth-child(4) {
+      border-top-color: $border-top-color_4;
+      rotate: -70deg;
+    }
+  }
+}
