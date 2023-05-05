@@ -1,7 +1,10 @@
-import './components/tile/tile.component'
-import './components/grid/grid.component'
-import './style/style.scss'
+import './components/tile/tile.component';
+import './components/grid/grid.component';
+import './components/sideMenu/sideMenu.component';
+import "./components/circleMenu/circleMenu.component";
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <my-grid class="c-grid"></my-grid>
-  `;
+<side-menu class="c-side-menu"></side-menu>
+<div class="main">
+<my-grid class="c-grid"></my-grid>
+</div>
+`;

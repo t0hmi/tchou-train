@@ -1,7 +1,13 @@
 @import "./components/grid.scss";
+@import "./components/sideMenu.scss";
+@import "./components/circularMenu.scss";
 
 @import "variables.scss";
 
+body {
+  margin: 0;
+  background-color: $background-color;
+}
 
 h1 {
   color: $main-color;
@@ -10,4 +16,12 @@ h1 {
 img {
   height: 100%;
   width: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+  :nth-child(2) {
+    flex: 1;
+  }
 }
