@@ -7,7 +7,6 @@ export default defineConfig({
     port: 3000,
     open: false,
     cors: true,
-
   },
   root: "src/",
   build: {

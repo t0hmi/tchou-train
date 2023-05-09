@@ -1,27 +1,45 @@
+import { Tile } from "../tile/type.type";
+import { TileComponent } from "../tile/tile.component";
+
 class GridComponent extends HTMLElement {
-  static selector = 'my-grid';
+  static selector = 'train-grid';
+  private tiles: string[] = Object.values(Tile);
 
-  private template: string;
-
-  private attr: string[] = [];
   constructor() {
     super();
-    this.template = ``;
+    const shadow = this.attachShadow({ mode: 'open' });
+    
+
     for (let i = 0; i < 36; i++) {
-      this.template += `<my-tile railType="${i % 2 == 0 ? "vertical" : "horizontal"}" class="c-grid__item"></my-tile>`;
+      // random value from Tile enum, for testing purpose
+      const child = document.createElement('train-tile');
+      child.setAttribute('tileType', Tile.EMPTY);
+      child.setAttribute('tileId', i.toString());
+      child.addEventListener('click', this.onClick);
+      shadow.appendChild(child);
     }
   }
 
+  nextTile(tiletype: string): string {
+    let index = this.tiles.indexOf(tiletype) + 1;
+    if(index >= this.tiles.length) {
+      index = 0;
+    }
+    return this.tiles[index];
+  }
+
+
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: 'closed' });
+    
+  }
 
+  
 
-    //replace all attributes in the template with the actual values
-    this.attr.forEach((el) => {
-      this.template = this.template.split(`{{${el}}}`).join(this.getAttribute(el));
-    });
-
-    shadow.innerHTML = this.template;
+  onClick = (ev: MouseEvent) => {
+    const tile = ev.target as TileComponent; 
+    const tileType = tile.getAttribute('tileType') as string;
+    tile.setAttribute('tileType', this.nextTile(tileType));
+    console.log("this", ev.target);  
   }
 
   // attribute change
