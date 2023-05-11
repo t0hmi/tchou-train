@@ -1,8 +1,7 @@
-import "./components/tile/tile.component";
-import "./components/grid/grid.component";
-import "./components/header/header.component";
+import "./components/circleMenu/circleMenu.component";
 import "./style/style.scss";
+
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <my-header></my-header>
-  <train-grid class="train-grid"></train-grid>
-  `;
+
+<circle-menu class="c-circle-menu"></circle-menu>  `;
+console.log(document.querySelector<HTMLDivElement>("#app"));

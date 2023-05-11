@@ -1,5 +1,5 @@
 import html from './circleMenu.component.html?raw';
-
+import styleText from '../../style/components/circularMenu.scss?inline'
 class CircleMenuComponent extends HTMLElement {
   static selector = 'circle-menu';
 
@@ -20,6 +20,10 @@ class CircleMenuComponent extends HTMLElement {
     });
 
     shadow.innerHTML = this.template;
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(styleText);
+    this.shadowRoot!.adoptedStyleSheets = [sheet];
+
 
     const linkElem = document.createElement('link');
     linkElem.setAttribute('rel', 'stylesheet');
