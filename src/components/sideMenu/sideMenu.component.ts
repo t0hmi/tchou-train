@@ -1,5 +1,5 @@
-import { log } from 'console';
 import html from './sideMenu.component.html?raw';
+import styleText from '../../style/style.scss?inline';
 
 class SideMenuComponent extends HTMLElement {
   static selector = 'side-menu';
@@ -19,10 +19,10 @@ class SideMenuComponent extends HTMLElement {
     });
 
     // Apply external styles to the shadow dom
-    const linkElem = document.createElement('link');
-    linkElem.setAttribute('rel', 'stylesheet');
-    linkElem.setAttribute('href', 'style/style.scss');
-    shadow.appendChild(linkElem)
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(styleText);
+    this.shadowRoot!.adoptedStyleSheets = [sheet];
+
     shadow.innerHTML += this.template;
 
     // listener for the menu button to close other open menus
@@ -37,11 +37,11 @@ class SideMenuComponent extends HTMLElement {
     const menuItem = shadow.querySelectorAll(".menu-item");
     const clearButton = shadow.getElementById("clearButton");
     console.log(clearButton);
-    
+
     menuItem.forEach(el => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
-        document.body.style.cursor = `url(assets/img/64/${el.id}.png), auto`;
+        document.body.style.cursor = `url(assets/img/64/${el.id.split("_").join("/")}.png), auto`;
         this.closeAll(checkBox);
         clearButton.classList.remove("hidden");
       })
