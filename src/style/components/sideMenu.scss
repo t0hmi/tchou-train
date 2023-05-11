@@ -8,10 +8,10 @@ nav[role=button] {
 
 .c-side-menu {
   display: flex;
-
+  flex-shrink: 1;
+  height: 100%;
   flex-direction: column;
   justify-content: space-between;
-  width: 25vw;
 
   padding: 1.5rem 3rem;
   background-color: $main-color;
@@ -21,7 +21,11 @@ nav[role=button] {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    // margin: 3rem 0;
+
+    :nth-child(n) {
+      margin-bottom: 2rem;
+      margin-left: 3.5rem;
+    }
 
     color: $on-main-color;
 
@@ -59,8 +63,12 @@ nav[role=button] {
       width: 3.5rem;
       -webkit-transform: translate3d(-8px, -7px, 0);
       transform: translate3d(-7px, -8px, 0);
+      border-radius: 100%;
     }
 
+    &__img {
+      border-radius: 100%;
+    }
   }
 
 }
@@ -91,7 +99,7 @@ a {
 
 .menu {
   margin: auto;
-  position: absolute;
+  // position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
