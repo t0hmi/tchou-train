@@ -8,7 +8,6 @@ nav[role=button] {
 
 .c-side-menu {
   display: flex;
-  height: 100vh;
 
   flex-direction: column;
   justify-content: space-between;
@@ -54,14 +53,16 @@ nav[role=button] {
       cursor: pointer;
     }
 
-    &__img {
-      height: 3rem;
-      width: 3rem;
+    &__img,
+    .image {
+      height: 3.5rem;
+      width: 3.5rem;
+      -webkit-transform: translate3d(-8px, -7px, 0);
+      transform: translate3d(-7px, -8px, 0);
     }
 
   }
 
-  
 }
 
 a {
@@ -72,8 +73,8 @@ a {
 .menu-open-button {
   border-radius: 100%;
   background: $background-color;
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  width: 4rem;
   position: absolute;
   padding: .75rem;
   margin: -40px;
@@ -145,8 +146,10 @@ a {
     -webkit-transform: translate3d(0, 8px, 0);
     transform: translate3d(0, 8px, 0);
   }
-  &.close{
+
+  &.close {
     opacity: 1;
+
     &:nth-child(1) {
       -webkit-transform: translate3d(0, 0, 0) rotate(45deg);
       transform: translate3d(0, 0, 0) rotate(45deg);
