@@ -1,5 +1,7 @@
 import html from './sideMenu.component.html?raw';
 import styleText from '../../style/style.scss?inline';
+import { Tile } from '../../types/type.type';
+
 
 class SideMenuComponent extends HTMLElement {
   static selector = 'side-menu';
@@ -41,7 +43,10 @@ class SideMenuComponent extends HTMLElement {
     menuItem.forEach(el => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
-        document.body.style.cursor = `url(assets/img/64/${el.id.split("_").join("/")}.png), auto`;
+        const tileType = el.id.split("-")[0];
+        const tileName = el.id.split("-")[1];
+
+        document.body.style.cursor = `url(assets/img/64/${tileType}/${Tile[tileName]}.png), auto`;
         this.closeAll(checkBox);
         clearButton.classList.remove("hidden");
       })

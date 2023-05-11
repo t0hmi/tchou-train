@@ -1,4 +1,4 @@
-import { Tile } from "../tile/type.type";
+import { Tile } from "../../types/type.type";
 import { TileComponent } from "../tile/tile.component";
 
 class GridComponent extends HTMLElement {
@@ -8,7 +8,7 @@ class GridComponent extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
-    
+
 
     for (let i = 0; i < 36; i++) {
       // random value from Tile enum, for testing purpose
@@ -22,7 +22,7 @@ class GridComponent extends HTMLElement {
 
   nextTile(tiletype: string): string {
     let index = this.tiles.indexOf(tiletype) + 1;
-    if(index >= this.tiles.length) {
+    if (index >= this.tiles.length) {
       index = 0;
     }
     return this.tiles[index];
@@ -30,16 +30,28 @@ class GridComponent extends HTMLElement {
 
 
   connectedCallback() {
-    
+
   }
 
-  
+
 
   onClick = (ev: MouseEvent) => {
-    const tile = ev.target as TileComponent; 
+    const cursor = document.body.style.cursor;
+    const tile = ev.target as TileComponent;
+    if (cursor) {
+      console.log('cursor', cursor.split(('"'))[1].split('/').at(-1).split('.')[0]);
+      const newTile = cursor.split(('"'))[1].split('/').at(-1).split('.')[0]
+      console.log('newTile', newTile);
+      console.log('Tile', Tile);
+
+      console.log('tile from Tile', Tile[newTile]);
+
+      tile.setAttribute('tileType', newTile)
+      return;
+    }
     const tileType = tile.getAttribute('tileType') as string;
     tile.setAttribute('tileType', this.nextTile(tileType));
-    console.log("this", ev.target);  
+    console.log("this", ev.target);
   }
 
   // attribute change
