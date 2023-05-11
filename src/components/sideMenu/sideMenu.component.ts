@@ -37,11 +37,11 @@ class SideMenuComponent extends HTMLElement {
     const menuItem = shadow.querySelectorAll(".menu-item");
     const clearButton = shadow.getElementById("clearButton");
     console.log(clearButton);
-    
+
     menuItem.forEach(el => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
-        document.body.style.cursor = `url(assets/img/64/${el.id}.png), auto`;
+        document.body.style.cursor = `url(assets/img/64/${el.id.split("_").join("/")}.png), auto`;
         this.closeAll(checkBox);
         clearButton.classList.remove("hidden");
       })
