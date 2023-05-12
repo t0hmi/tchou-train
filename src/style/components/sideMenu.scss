@@ -12,9 +12,10 @@ nav[role=button] {
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
+  width: 25vw;
 
   padding: 1.5rem 3rem;
-  background-color: $main-color;
+  background-color: #000c18;
 
   &__header {
     display: flex;

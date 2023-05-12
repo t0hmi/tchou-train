@@ -75,7 +75,7 @@ ul {
   height: 100%;
   position: absolute;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
   
   &::before, &::after {
     background: #000c18;
@@ -560,6 +560,22 @@ ul {
   }
 }
 
+.bridge {
+  border-bottom: 0.3rem solid white;
+  border-top: 0.3rem solid white;
+  background: black;
+  background: -webkit-linear-gradient(55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem, -webkit-linear-gradient(-55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem;
+  background: -moz-linear-gradient(55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem, -moz-linear-gradient(-55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem;
+  background: -o-linear-gradient(55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem, -o-linear-gradient(-55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem;
+  background: -ms-linear-gradient(55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem, -ms-linear-gradient(-55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem;
+  background: linear-gradient(55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem, linear-gradient(-55deg, transparent 46%, white 46%, white 54%, transparent 54%) left/1.6rem 2.2rem;
+  top: 14.8rem;
+  height: 2.6rem;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
 .wheel-joint {
   background: white;
   border-radius: 0.6rem;
@@ -614,9 +630,11 @@ ul {
     left: 49.5rem;
     right: auto;
     transform-origin: 0 50%;
+    transform: rotate(45deg);
     background: #6e6e6e;
-    z-index: 1;
-    width: 2rem;
+    position: relative;
+    z-index: 10;
+    width: 10rem;
     
     &::before {
       height: 1.1rem;
