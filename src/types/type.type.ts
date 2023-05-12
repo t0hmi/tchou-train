@@ -1,5 +1,9 @@
 export enum Empty {
-    EMPTY = 'EMPTY'
+    EMPTY = 'EMPTY',
+}
+
+export enum Tool {
+    ERASOR = 'ERASOR',
 }
 
 export enum Rail {
@@ -19,6 +23,14 @@ export enum Nature {
 
 export enum Building {
     HOUSE = 'HOUSE'
+}
+
+export const TileType = {
+    ...Empty,
+    ...Rail,
+    ...Nature,
+    ...Building,
+    ...Tool
 }
 
 export const Tile = {

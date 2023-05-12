@@ -11,16 +11,18 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 0;
-  height: 100%;
+  height: 70vh;
   position: relative;
   aspect-ratio: 1/1;
-  animation: move-grid 16.6s linear;
+  animation: move-grid 15.2s linear;
 }
+
 
 @keyframes move-grid {
   0% {
-    transform: translateX(2037px);
+    transform: translateX(1865px);
   }
+
   100% {
     transform: translateX(0);
   }

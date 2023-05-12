@@ -1,4 +1,4 @@
-import { Tile } from "../../types/type.type";
+import { Tile, TileType } from "../../types/type.type";
 import { TileComponent } from "../tile/tile.component";
 
 class GridComponent extends HTMLElement {
@@ -38,20 +38,23 @@ class GridComponent extends HTMLElement {
   onClick = (ev: MouseEvent) => {
     const cursor = document.body.style.cursor;
     const tile = ev.target as TileComponent;
-    if (cursor) {
-      console.log('cursor', cursor.split(('"'))[1].split('/').at(-1).split('.')[0]);
-      const newTile = cursor.split(('"'))[1].split('/').at(-1).split('.')[0]
-      console.log('newTile', newTile);
-      console.log('Tile', Tile);
 
-      console.log('tile from Tile', Tile[newTile]);
-
-      tile.setAttribute('tileType', newTile)
-      return;
+    if (!cursor) {
+      const tileType = tile.getAttribute('tileType') as string;
+      tile.setAttribute('tileType', this.nextTile(tileType));
+      return
     }
-    const tileType = tile.getAttribute('tileType') as string;
-    tile.setAttribute('tileType', this.nextTile(tileType));
-    console.log("this", ev.target);
+
+    const cursoredTile = cursor.split(('"'))[1].split('/').at(-1).split('.')[0];
+
+    // cas de l'effaceur
+    if (cursoredTile == TileType.ERASOR) {
+      tile.setAttribute('tileType', Tile.EMPTY);
+      return
+    }
+
+    tile.setAttribute('tileType', cursoredTile)
+    return;
   }
 
   // attribute change
