@@ -46,7 +46,7 @@ class SideMenuComponent extends HTMLElement {
         const tileType = el.id.split("-")[0];
         const tileName = el.id.split("-")[1];
 
-        document.body.style.cursor = `url(assets/img/64/${tileType}/${TileType[tileName]}.png), auto`;
+        document.body.style.cursor = `url(assets/img/64/${tileType}/${TileType[tileName]}.png) 32 32, auto`;
         this.closeAll(checkBox);
         clearButton.classList.remove("hidden");
       })
